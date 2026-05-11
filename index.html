@@ -37,8 +37,7 @@
         // 전체 코드를 그대로 복사해서 덮어쓰기 하시면 됩니다! ↓↓↓
         // =====================================================================
 
-    import React, { useState, useEffect, useRef, useMemo } from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine, ResponsiveContainer } from 'recharts';
+
 
 // --- 화살표 정보 및 설명 데이터 ---
 const INFO_DATA = {
@@ -152,7 +151,7 @@ const ArrowPath = ({ id, d, value, color, angle, headPos, textPos, label, hovere
   );
 };
 
-export default function App() {
+function App() {
   const [showStartModal, setShowStartModal] = useState(true);
 
   // === 시뮬레이션 상태 변수 ===
