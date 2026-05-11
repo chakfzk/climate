@@ -1,43 +1,5 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>기후 변화 시뮬레이션</title>
-
-    <!-- 1. Tailwind CSS (디자인) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- 2. React 기본 라이브러리 -->
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-
-    <!-- 3. Babel (JSX 문법 번역기) -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-    <!-- 4. Recharts (그래프 라이브러리) -->
-    <script src="https://unpkg.com/prop-types/prop-types.min.js"></script>
-    <script src="https://unpkg.com/recharts/umd/Recharts.js"></script>
-    
-    <!-- 5. 아이콘 라이브러리 (Lucide) -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-</head>
-<body class="bg-gray-100">
-    <!-- 시뮬레이션이 그려질 도화지 -->
-    <div id="root"></div>
-
-    <!-- 여기서부터 실제 자바스크립트/리액트 코드가 들어갑니다 -->
-    <script type="text/babel">
-        // CDN 환경에서 React와 Recharts의 기능을 꺼내오는 작업입니다.
-        const { useState, useEffect, useRef } = React;
-        const { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine } = window.Recharts;
-
-        // =====================================================================
-        // ↓↓↓ 이 아래부터 기존에 제가 짜드린 "export default function App() { ... }" 
-        // 전체 코드를 그대로 복사해서 덮어쓰기 하시면 됩니다! ↓↓↓
-        // =====================================================================
-
-
+import React, { useState, useEffect, useRef, useMemo } from 'react';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine, ResponsiveContainer } from 'recharts';
 
 // --- 화살표 정보 및 설명 데이터 ---
 const INFO_DATA = {
@@ -151,7 +113,7 @@ const ArrowPath = ({ id, d, value, color, angle, headPos, textPos, label, hovere
   );
 };
 
-function App() {
+export default function App() {
   const [showStartModal, setShowStartModal] = useState(true);
 
   // === 시뮬레이션 상태 변수 ===
@@ -576,15 +538,3 @@ function App() {
     </div>
   );
 }
-
-
-        // =====================================================================
-        // ↑↑↑ 여기까지 덮어쓰기 하세요 ↑↑↑
-        // =====================================================================
-
-        // 작성된 App 컴포넌트를 화면(root)에 그려줍니다.
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
-</body>
-</html>
